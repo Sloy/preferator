@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/pref_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="pref_name"
+        android:textAppearance="@style/pref_name_text_appearance" />
+
+    <TextView
+        android:id="@+id/pref_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/pref_name"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_toRightOf="@id/pref_name"
+        android:text="Type"
+        android:textAppearance="@style/pref_type_text_appearance" />
+
+
+    <FrameLayout
+        android:id="@+id/pref_value_editor_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pref_name"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium">
+
+        <!--<com.sloydev.preferator.PrefEditorString
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />-->
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground" />
+</RelativeLayout>

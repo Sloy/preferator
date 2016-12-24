@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sloydev.preferator">
+
+    <application>
+        <activity
+            android:theme="@style/PreferatorActivityTheme"
+            android:name=".PrefereitorActivity"
+            android:label="Edit preferences" />
+    </application>
+
+</manifest>

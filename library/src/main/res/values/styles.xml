@@ -1,0 +1,30 @@
+<resources>
+
+    <style name="PreferatorActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+    <style name="section_title_text_appearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="pref_name_text_appearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/font_headline</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="pref_type_text_appearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/font_subheading</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="pref_value_text_appearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/font_subheading</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#dadada</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="black_87">#212121</color>
+    <color name="black_54">#757575</color>
+
+    <color name="font_headline">@color/black_87</color>
+    <color name="font_subheading">@color/black_54</color>
+</resources>

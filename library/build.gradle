@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+sourceCompatibility = 1.7
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.0.0'
+
+}
+
+publish {
+    userOrg = 'sloy'
+    groupId = 'com.sloydev'
+    artifactId = 'preferator'
+    publishVersion = '1.0.0'
+    desc = 'Edit your app\'s SharedPreferences from your device'
+    website = 'https://github.com/sloy/preferator'
+}

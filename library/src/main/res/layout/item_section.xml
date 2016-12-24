@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_medium"
+    android:background="@color/white"
+    android:elevation="4dp"
+    android:orientation="vertical"
+    tools:context="com.sloydev.preferator.PrefereitorActivity"
+    tools:showIn="@layout/activity_prefereitor">
+
+    <TextView
+        android:id="@+id/section_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="file name"
+        android:textAppearance="@style/section_title_text_appearance" />
+
+    <LinearLayout
+        android:id="@+id/section_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--<include layout="@layout/item_preference" />
+
+        <include layout="@layout/item_preference" />
+
+        <include layout="@layout/item_preference" />-->
+
+    </LinearLayout>
+</LinearLayout>
