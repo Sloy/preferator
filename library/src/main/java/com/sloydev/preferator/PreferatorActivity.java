@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class PrefereitorActivity extends AppCompatActivity {
+public class PreferatorActivity extends AppCompatActivity {
 
     private static final String TAG = "Preferator";
     private ViewGroup sectionsView;

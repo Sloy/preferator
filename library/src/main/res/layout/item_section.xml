@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:elevation="4dp"
     android:orientation="vertical"
-    tools:context="com.sloydev.preferator.PrefereitorActivity"
+    tools:context="com.sloydev.preferator.PreferatorActivity"
     tools:showIn="@layout/activity_prefereitor">
 
     <TextView

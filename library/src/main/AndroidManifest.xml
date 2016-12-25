@@ -4,7 +4,7 @@
     <application>
         <activity
             android:theme="@style/PreferatorActivityTheme"
-            android:name=".PrefereitorActivity"
+            android:name=".PreferatorActivity"
             android:label="Edit preferences" />
     </application>
 
