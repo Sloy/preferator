@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/margin_medium"
+    android:animateLayoutChanges="true"
     android:background="@color/white"
     android:elevation="4dp"
     android:orientation="vertical"
@@ -23,6 +24,7 @@
         android:id="@+id/section_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <!--<include layout="@layout/item_preference" />

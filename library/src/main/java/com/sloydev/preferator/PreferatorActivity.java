@@ -3,8 +3,10 @@ package com.sloydev.preferator;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -80,19 +82,20 @@ public class PreferatorActivity extends AppCompatActivity {
     }
 
     private void addSection(String sectionTitle, List<Pair<String, ?>> entries, final SharedPreferences preferences) {
-        View sectionView = LayoutInflater.from(this).inflate(R.layout.item_section, sectionsView, false);
+        final View sectionView = LayoutInflater.from(this).inflate(R.layout.item_section, sectionsView, false);
         TextView sectionNameView = (TextView) sectionView.findViewById(R.id.section_name);
-        ViewGroup itemsView = (ViewGroup) sectionView.findViewById(R.id.section_items);
+        final ViewGroup itemsView = (ViewGroup) sectionView.findViewById(R.id.section_items);
 
         sectionNameView.setText(sectionTitle);
         for (final Pair<String, ?> pref : entries) {
             final String prefKey = pref.first;
-            Object prefValue = pref.second;
+            final Object prefValue = pref.second;
             Type prefType = Type.of(prefValue);
 
-            View itemView = LayoutInflater.from(this).inflate(R.layout.item_preference, itemsView, false);
+            final View itemView = LayoutInflater.from(this).inflate(R.layout.item_preference, itemsView, false);
             TextView nameView = (TextView) itemView.findViewById(R.id.pref_name);
             TextView typeView = (TextView) itemView.findViewById(R.id.pref_type);
+            View moreView = itemView.findViewById(R.id.pref_more);
 
             nameView.setText(prefKey);
             typeView.setText(prefType.name);
@@ -100,6 +103,33 @@ public class PreferatorActivity extends AppCompatActivity {
             ViewGroup editorContainer = (ViewGroup) itemView.findViewById(R.id.pref_value_editor_container);
             View editorView = createEditorView(preferences, prefKey, prefValue, prefType);
             editorContainer.addView(editorView);
+
+            final PopupMenu moreOptionsMenu = new PopupMenu(this, moreView);
+            moreOptionsMenu.inflate(R.menu.pref_more_options);
+            moreOptionsMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    if (item.getItemId() == R.id.menu_pref_delete) {
+                        preferences.edit().remove(prefKey).apply();
+                        itemsView.removeView(itemView);
+                        return true;
+                    } else if (item.getItemId() == R.id.menu_pref_share) {
+                        String sharedMessage = String.format("\"%s\":\"%s\"", prefKey, prefValue.toString());
+                        ShareCompat.IntentBuilder.from(PreferatorActivity.this)
+                                .setText(sharedMessage)
+                                .setType("text/plain")
+                                .startChooser();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            moreView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    moreOptionsMenu.show();
+                }
+            });
 
             itemsView.addView(itemView);
         }

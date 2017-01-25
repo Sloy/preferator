@@ -34,15 +34,26 @@
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginRight="@dimen/margin_medium">
 
-        <!--<com.sloydev.preferator.PrefEditorString
+        <!--<com.sloydev.preferator.editor.StringPrefEditor
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />-->
 
     </FrameLayout>
 
+    <ImageView
+        android:id="@+id/pref_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/pref_name"
+        android:layout_marginRight="@dimen/margin_small"
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:src="@drawable/ic_more_vert_black_24dp" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/pref_value_editor_container"
         android:background="@color/colorBackground" />
 </RelativeLayout>
