@@ -1,11 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.novoda.bintray-release'
 
 sourceCompatibility = 1.7
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         minSdkVersion 15
@@ -25,6 +26,7 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:23.0.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
 }
 
@@ -35,4 +37,7 @@ publish {
     publishVersion = '1.1.0'
     desc = 'Edit your app\'s SharedPreferences from your device'
     website = 'https://github.com/sloy/preferator'
+}
+repositories {
+    mavenCentral()
 }
