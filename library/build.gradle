@@ -47,3 +47,8 @@ publish {
 repositories {
     mavenCentral()
 }
+
+// Hack for: https://github.com/novoda/bintray-release/issues/71
+tasks.withType(Javadoc) {
+    excludes = ['**/*.kt']
+}
