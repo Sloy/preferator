@@ -74,6 +74,14 @@ class PreferatorActivity : AppCompatActivity() {
         val itemsView = sectionView.findViewById(R.id.section_items) as ViewGroup
 
         sectionNameView.text = sectionTitle
+        sectionNameView.setOnClickListener {
+            if (itemsView.visibility == View.VISIBLE) {
+                itemsView.visibility = View.GONE
+            } else {
+                itemsView.visibility = View.VISIBLE
+            }
+        }
+
         for (pref in entries) {
             val prefKey = pref.first
             val prefValue = pref.second
