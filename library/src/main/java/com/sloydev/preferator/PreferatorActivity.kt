@@ -42,16 +42,19 @@ class PreferatorActivity : AppCompatActivity() {
         //TODO
         val rootPath = this.applicationInfo.dataDir + "/shared_prefs"
         val prefsFolder = File(rootPath)
-        val children = prefsFolder.list() ?: //TODO
-                return
-        for (i in children.indices) {
-            val prefFileName = children[i]
-            val prefName = if (prefFileName.endsWith(".xml"))
-                prefFileName.substring(0, prefFileName.indexOf(".xml"))
-            else
-                prefFileName
-            generateForm(prefName)
+        prefsFolder.list()
+                .map {
+                    truncateXmlExtension(it)
+                }.forEach {
+            generateForm(it!!)
         }
+    }
+
+    private fun truncateXmlExtension(it: String): String? {
+        return if (it.endsWith(".xml"))
+            it.substring(0, it.indexOf(".xml"))
+        else
+            it
     }
 
     private fun generateForm(prefsName: String) {
@@ -122,7 +125,6 @@ class PreferatorActivity : AppCompatActivity() {
             PreferatorActivity.Type.BOOLEAN -> return createBooleanEditorView(preferences, prefKey, prefValue as Boolean)
             PreferatorActivity.Type.SET -> return createSetEditorView(preferences, prefKey, prefValue as Set<String>)
         }
-        throw IllegalStateException("No editor view found for type " + prefType.typeName)
     }
 
     private fun createStringEditorView(preferences: SharedPreferences, prefKey: String, prefValue: String): StringPrefEditor {
