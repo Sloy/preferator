@@ -25,6 +25,7 @@ class PreferatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prefereitor)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.subtitle = getApplicationName()
 
         sectionsView = findViewById(R.id.sections) as ViewGroup
         parsePreferences()
@@ -217,6 +218,12 @@ class PreferatorActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun getApplicationName(): String {
+        val applicationInfo = applicationInfo
+        val stringId = applicationInfo.labelRes
+        return if (stringId == 0) applicationInfo.nonLocalizedLabel.toString() else getString(stringId)
     }
 
     companion object {
