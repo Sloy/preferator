@@ -9,16 +9,35 @@
     android:orientation="vertical"
     >
 
-    <TextView
-        android:id="@+id/section_name"
+    <LinearLayout
+        android:id="@+id/section_name_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
-        android:gravity="center_vertical"
-        android:minHeight="48dp"
+        android:paddingTop="4dp"
         android:paddingLeft="@dimen/margin_medium"
-        android:textAppearance="@style/section_title_text_appearance"
-        tools:text="file name"/>
+        android:paddingRight="@dimen/margin_small">
+
+        <TextView
+            android:id="@+id/section_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:textAppearance="@style/section_title_text_appearance"
+            tools:text="file name"/>
+
+        <ImageView
+            android:id="@+id/section_arrow"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_arrow_collapse_black_24dp"
+            android:tint="?colorAccent"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/section_items"
