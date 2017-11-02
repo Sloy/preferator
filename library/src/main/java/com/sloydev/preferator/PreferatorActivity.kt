@@ -46,12 +46,14 @@ class PreferatorActivity : AppCompatActivity() {
         prefsFolder.list()
                 .map {
                     truncateXmlExtension(it)
-                }.forEach {
-            generateForm(it!!)
-        }
+                }
+                .sortedWith(compareBy({ SdkFilter.isSdkPreference(it) }, { it }))
+                .forEach {
+                    generateForm(it)
+                }
     }
 
-    private fun truncateXmlExtension(it: String): String? {
+    private fun truncateXmlExtension(it: String): String {
         return if (it.endsWith(".xml"))
             it.substring(0, it.indexOf(".xml"))
         else
@@ -85,6 +87,12 @@ class PreferatorActivity : AppCompatActivity() {
                 itemsView.visibility = View.VISIBLE
                 sectionArrowView.setImageResource(R.drawable.ic_arrow_collapse_black_24dp)
             }
+        }
+
+        // Auto-collapse sdks
+        if (SdkFilter.isSdkPreference(sectionTitle)) {
+            itemsView.visibility = View.GONE
+            sectionArrowView.setImageResource(R.drawable.ic_arrow_expand_black_24dp)
         }
 
         for (pref in entries) {
