@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.sloydev.preferator.editor.*
 import java.io.File
@@ -70,10 +71,22 @@ class PreferatorActivity : AppCompatActivity() {
 
     private fun addSection(sectionTitle: String, entries: List<Pair<String, *>>, preferences: SharedPreferences) {
         val sectionView = LayoutInflater.from(this).inflate(R.layout.item_section, sectionsView, false)
+        val sectionNameContainer = sectionView.findViewById(R.id.section_name_container)
         val sectionNameView = sectionView.findViewById(R.id.section_name) as TextView
+        val sectionArrowView = sectionView.findViewById(R.id.section_arrow) as ImageView
         val itemsView = sectionView.findViewById(R.id.section_items) as ViewGroup
 
         sectionNameView.text = sectionTitle
+        sectionNameContainer.setOnClickListener {
+            if (itemsView.visibility == View.VISIBLE) {
+                itemsView.visibility = View.GONE
+                sectionArrowView.setImageResource(R.drawable.ic_arrow_expand_black_24dp)
+            } else {
+                itemsView.visibility = View.VISIBLE
+                sectionArrowView.setImageResource(R.drawable.ic_arrow_collapse_black_24dp)
+            }
+        }
+
         for (pref in entries) {
             val prefKey = pref.first
             val prefValue = pref.second
