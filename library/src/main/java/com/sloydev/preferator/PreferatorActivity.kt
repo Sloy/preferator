@@ -87,6 +87,12 @@ class PreferatorActivity : AppCompatActivity() {
             }
         }
 
+        // Auto-collapse sdks
+        if (SdkFilter.isSdkPreference(sectionTitle)) {
+            itemsView.visibility = View.GONE
+            sectionArrowView.setImageResource(R.drawable.ic_arrow_expand_black_24dp)
+        }
+
         for (pref in entries) {
             val prefKey = pref.first
             val prefValue = pref.second
