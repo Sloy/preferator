@@ -40,7 +40,7 @@ publish {
     userOrg = 'sloy'
     groupId = 'com.sloydev'
     artifactId = 'preferator'
-    publishVersion = '1.1.0'
+    publishVersion = '1.2.0'
     desc = 'Edit your app\'s SharedPreferences from your device'
     website = 'https://github.com/sloy/preferator'
 }
