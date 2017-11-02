@@ -7,20 +7,33 @@ object SdkFilter {
     // HEY! YOU! Add your sdk here if you want it to be ignored :D
     @Language("RegExp")
     val ignoredSdkNamePatterns = listOf(
+            // Adobe Analytics
             "APP_MEASUREMENT_CACHE",
-            "ATPrefs",
-            "TwitterAdvertisingInfoPreferences",
+            // Chromium
             "WebViewChromiumPrefs",
-            "cSPrefs",
+            // Chuck
             "chuck_preferences",
+            // ComScore
+            "cSPrefs",
+            // Custom Activity on Crash
             "custom_activity_on_crash",
-            "com.crashlytics.(.*)",
-            "io.fabric.sdk.android(.*)",
+            // Debug drawer
             "debug_drawer_(.*)",
+            // Fabric
+            "TwitterAdvertisingInfoPreferences",
+            "io.fabric.sdk.android(.*)",
+            "com.crashlytics.(.*)",
+            // Google
             "com.google.android.(.*)",
-            "com.schibsted.spt.tracking.(.*)",
             "fcm.(.*)",
-            "layer(.*)"
+            // Layer
+            "layer(.*)",
+            // Schibsted
+            "com.schibsted.spt.tracking.(.*)",
+            // Swrve
+            "swrve_(.*)",
+            // Xiti
+            "ATPrefs"
     )
 
     private val ignoredSdkNameRegexs = ignoredSdkNamePatterns.map { it.toRegex() }
