@@ -46,12 +46,14 @@ class PreferatorActivity : AppCompatActivity() {
         prefsFolder.list()
                 .map {
                     truncateXmlExtension(it)
-                }.forEach {
-            generateForm(it!!)
-        }
+                }
+                .sortedWith(compareBy({ SdkFilter.isSdkPreference(it) }, { it }))
+                .forEach {
+                    generateForm(it)
+                }
     }
 
-    private fun truncateXmlExtension(it: String): String? {
+    private fun truncateXmlExtension(it: String): String {
         return if (it.endsWith(".xml"))
             it.substring(0, it.indexOf(".xml"))
         else
