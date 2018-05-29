@@ -9,6 +9,10 @@ object SdkFilter {
     val ignoredSdkNamePatterns = listOf(
             // Adobe Analytics
             "APP_MEASUREMENT_CACHE",
+            // Apptimize
+            "apptimizenet.(.*)",
+            // Braze
+            "com.appboy.(.*)",
             // Chromium
             "WebViewChromiumPrefs",
             // Chuck
@@ -24,7 +28,7 @@ object SdkFilter {
             "io.fabric.sdk.android(.*)",
             "com.crashlytics.(.*)",
             // Google
-            "com.google.android.(.*)",
+            "com.google.(.*)",
             "fcm.(.*)",
             // Layer
             "layer(.*)",
