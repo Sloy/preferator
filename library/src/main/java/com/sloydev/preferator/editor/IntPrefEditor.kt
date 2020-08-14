@@ -15,7 +15,8 @@ class IntPrefEditor @JvmOverloads constructor(
   defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
   private var valueView: EditText
-  var onIntValueChangeListener: ((newValue: Int)->Unit)? = null
+  var onIntValueChangeListener: ((newValue: Int) -> Unit)? = null
+
   init {
     LayoutInflater.from(context).inflate(R.layout.item_editor_int, this, true)
     valueView = findViewById(R.id.pref_value) as EditText
@@ -42,6 +43,4 @@ class IntPrefEditor @JvmOverloads constructor(
     set(value) {
       valueView.setText(value?.toString())
     }
-
-
 }

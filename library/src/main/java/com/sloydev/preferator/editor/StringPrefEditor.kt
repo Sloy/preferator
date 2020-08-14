@@ -22,7 +22,7 @@ class StringPrefEditor @JvmOverloads constructor(
     valueView = findViewById(R.id.pref_value) as EditText
     valueView.addTextChangedListener(object : TextWatcher {
       override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-          onStringValueChangeListener?.invoke(charSequence.toString())
+        onStringValueChangeListener?.invoke(charSequence.toString())
       }
 
       override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
@@ -35,5 +35,4 @@ class StringPrefEditor @JvmOverloads constructor(
     set(value) {
       valueView.setText(value)
     }
-
 }

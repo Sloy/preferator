@@ -164,7 +164,7 @@ class PreferatorActivity : AppCompatActivity() {
   private fun createIntEditorView(preferences: SharedPreferences, prefKey: String, prefValue: Int?): IntPrefEditor {
     val intEditor = IntPrefEditor(this)
     intEditor.value = prefValue
-    intEditor.onIntValueChangeListener = { newValue -> preferences.edit().putInt(prefKey, newValue!!).apply() }
+    intEditor.onIntValueChangeListener = { newValue -> preferences.edit().putInt(prefKey, newValue).apply() }
     return intEditor
   }
 

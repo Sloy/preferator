@@ -16,7 +16,7 @@ class BooleanPrefEditor @JvmOverloads constructor(
   private var valueView: Switch
   var onBooleanValueChangeListener: ((newValue: Boolean) -> Unit)? = null
 
-   init {
+  init {
     LayoutInflater.from(context).inflate(R.layout.item_editor_boolean, this, true)
     valueView = findViewById(R.id.pref_value_boolean) as Switch
     valueView.setOnCheckedChangeListener { _, isChecked ->
@@ -30,5 +30,4 @@ class BooleanPrefEditor @JvmOverloads constructor(
     set(value) {
       valueView.isChecked = value != FALSE
     }
-
 }

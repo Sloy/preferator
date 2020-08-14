@@ -16,12 +16,13 @@ class FloatPrefEditor @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
   private var valueView: EditText
   var onFloatValueChangeListener: ((newValue: Float) -> Unit)? = null
+
   init {
     LayoutInflater.from(context).inflate(R.layout.item_editor_float, this, true)
     valueView = findViewById(R.id.pref_value) as EditText
     valueView.addTextChangedListener(object : TextWatcher {
       override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-        onFloatValueChangeListener?.let  {
+        onFloatValueChangeListener?.let {
           try {
             val number = charSequence.toString().toFloat()
             it.invoke(number)
@@ -42,5 +43,4 @@ class FloatPrefEditor @JvmOverloads constructor(
     set(value) {
       valueView.setText(value?.toString())
     }
-
 }

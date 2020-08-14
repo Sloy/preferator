@@ -22,7 +22,7 @@ class LongPrefEditor @JvmOverloads constructor(
     valueView = findViewById(R.id.pref_value) as EditText
     valueView.addTextChangedListener(object : TextWatcher {
       override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-        onLongValueChangeListener?.let{
+        onLongValueChangeListener?.let {
           try {
             val number: Long = charSequence.toString().toLong()
             it.invoke(number)

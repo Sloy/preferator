@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.FrameLayout
 import com.sloydev.preferator.R
-import java.util.Arrays
 import java.util.HashSet
 
 class SetPrefEditor @JvmOverloads constructor(
@@ -25,7 +24,7 @@ class SetPrefEditor @JvmOverloads constructor(
     valueView = findViewById(R.id.pref_value) as EditText
     valueView.addTextChangedListener(object : TextWatcher {
       override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-          onSetValueChangeListener?.invoke(stringToSet(charSequence.toString()))
+        onSetValueChangeListener?.invoke(stringToSet(charSequence.toString()))
       }
 
       override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
