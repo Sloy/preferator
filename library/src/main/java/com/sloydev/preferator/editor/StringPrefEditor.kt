@@ -10,20 +10,19 @@ import android.widget.FrameLayout
 import com.sloydev.preferator.R
 
 class StringPrefEditor @JvmOverloads constructor(
-  context: Context?,
+  context: Context,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-  private var valueView: EditText? = null
-  private var onStringValueChangeListener: OnStringValueChangeListener? = null
-  private fun init() {
+  private val valueView: EditText
+  var onStringValueChangeListener: ((newValue: String) -> Unit)? = null
+
+  init {
     LayoutInflater.from(context).inflate(R.layout.item_editor_string, this, true)
     valueView = findViewById(R.id.pref_value) as EditText
-    valueView!!.addTextChangedListener(object : TextWatcher {
+    valueView.addTextChangedListener(object : TextWatcher {
       override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-        if (onStringValueChangeListener != null) {
-          onStringValueChangeListener!!.onValueChange(charSequence.toString())
-        }
+          onStringValueChangeListener?.invoke(charSequence.toString())
       }
 
       override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
@@ -32,20 +31,9 @@ class StringPrefEditor @JvmOverloads constructor(
   }
 
   var value: String?
-    get() = valueView!!.text.toString()
+    get() = valueView.text.toString()
     set(value) {
-      valueView!!.setText(value)
+      valueView.setText(value)
     }
 
-  fun setOnStringValueChangeListener(onStringValueChangeListener: OnStringValueChangeListener?) {
-    this.onStringValueChangeListener = onStringValueChangeListener
-  }
-
-  interface OnStringValueChangeListener {
-    fun onValueChange(newValue: String?)
-  }
-
-  init {
-    init()
-  }
 }

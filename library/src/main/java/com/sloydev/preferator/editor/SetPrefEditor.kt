@@ -13,20 +13,19 @@ import java.util.Arrays
 import java.util.HashSet
 
 class SetPrefEditor @JvmOverloads constructor(
-  context: Context?,
+  context: Context,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-  private var valueView: EditText? = null
-  private var onSetValueChangeListener: OnSetValueChangeListener? = null
-  private fun init() {
+  private val valueView: EditText
+  var onSetValueChangeListener: ((Set<String?>) -> Unit)? = null
+
+  init {
     LayoutInflater.from(context).inflate(R.layout.item_editor_string, this, true)
     valueView = findViewById(R.id.pref_value) as EditText
-    valueView!!.addTextChangedListener(object : TextWatcher {
+    valueView.addTextChangedListener(object : TextWatcher {
       override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-        if (onSetValueChangeListener != null) {
-          onSetValueChangeListener!!.onValueChange(stringToSet(charSequence.toString()))
-        }
+          onSetValueChangeListener?.invoke(stringToSet(charSequence.toString()))
       }
 
       override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
@@ -36,31 +35,19 @@ class SetPrefEditor @JvmOverloads constructor(
 
   var value: Set<String?>
     get() {
-      val rawValue = valueView!!.text.toString()
+      val rawValue = valueView.text.toString()
       return stringToSet(rawValue)
     }
     set(value) {
-      valueView!!.setText(setToString(value))
+      valueView.setText(setToString(value))
     }
-
-  fun setOnSetValueChangeListener(onSetValueChangeListener: OnSetValueChangeListener?) {
-    this.onSetValueChangeListener = onSetValueChangeListener
-  }
 
   private fun stringToSet(rawValue: String): Set<String?> {
     val items = rawValue.split(",".toRegex()).toTypedArray()
-    return HashSet(Arrays.asList(*items))
+    return HashSet(listOf(*items))
   }
 
   private fun setToString(set: Set<String?>): String {
     return TextUtils.join(",", set)
-  }
-
-  interface OnSetValueChangeListener {
-    fun onValueChange(newValue: Set<String?>?)
-  }
-
-  init {
-    init()
   }
 }

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.sloydev.preferator.Preferator.launch
+import com.sloydev.preferator.Preferator
 import java.util.Arrays
 import java.util.HashSet
 
@@ -14,7 +14,7 @@ class DemoActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_demo)
-    findViewById(R.id.demo_edit).setOnClickListener { launch(this@DemoActivity) }
+    findViewById(R.id.demo_edit).setOnClickListener { Preferator.launch(this@DemoActivity) }
     findViewById(R.id.demo_prefill).setOnClickListener { prefillPreferences() }
   }
 

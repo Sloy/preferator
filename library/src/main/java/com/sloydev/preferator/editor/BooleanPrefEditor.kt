@@ -6,39 +6,29 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.Switch
 import com.sloydev.preferator.R
+import java.lang.Boolean.FALSE
 
 class BooleanPrefEditor @JvmOverloads constructor(
   context: Context?,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-  private var valueView: Switch? = null
-  private var onBooleanValueChangeListener: OnBooleanValueChangeListener? = null
-  private fun init() {
+  private var valueView: Switch
+  var onBooleanValueChangeListener: ((newValue: Boolean) -> Unit)? = null
+
+   init {
     LayoutInflater.from(context).inflate(R.layout.item_editor_boolean, this, true)
     valueView = findViewById(R.id.pref_value_boolean) as Switch
-    valueView!!.setOnCheckedChangeListener { compoundButton, isChecked ->
-      if (onBooleanValueChangeListener != null) {
-        onBooleanValueChangeListener!!.onValueChange(isChecked)
-      }
+    valueView.setOnCheckedChangeListener { _, isChecked ->
+      onBooleanValueChangeListener?.invoke(isChecked)
+
     }
   }
 
   var value: Boolean?
-    get() = valueView!!.isChecked
+    get() = valueView.isChecked
     set(value) {
-      valueView!!.isChecked = value!!
+      valueView.isChecked = value != FALSE
     }
 
-  fun setOnBooleanValueChangeListener(onBooleanValueChangeListener: OnBooleanValueChangeListener?) {
-    this.onBooleanValueChangeListener = onBooleanValueChangeListener
-  }
-
-  interface OnBooleanValueChangeListener {
-    fun onValueChange(newValue: Boolean?)
-  }
-
-  init {
-    init()
-  }
 }
