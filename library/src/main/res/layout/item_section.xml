@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:background="?selectableItemBackground"
             android:paddingStart="@dimen/margin_medium"
-            android:paddingTop="4dp"
             android:paddingEnd="@dimen/margin_small">
 
             <TextView
