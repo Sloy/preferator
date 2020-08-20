@@ -3,7 +3,6 @@
 
     <application>
         <activity
-            android:theme="@style/PreferatorActivityTheme"
             android:name=".PreferatorActivity"
             android:label="Edit preferences" />
     </application>
