@@ -1,8 +1,8 @@
 <resources>
 
-    <style name="section_title_text_appearance" parent="TextAppearance.AppCompat">
+    <style name="TextAppearance.Preferator.Section" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">?colorAccent</item>
+        <item name="android:textColor">?colorSecondary</item>
         <item name="android:textStyle">bold</item>
         <item name="fontFamily">sans-serif-condensed</item>
     </style>

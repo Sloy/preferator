@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/margin_medium"
-    android:background="@color/white"
     android:elevation="4dp"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/section_name_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/margin_medium"
         android:paddingTop="4dp"
-        android:paddingLeft="@dimen/margin_medium"
-        android:paddingRight="@dimen/margin_small">
+        android:paddingEnd="@dimen/margin_small">
 
         <TextView
             android:id="@+id/section_name"
@@ -25,18 +24,17 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:minHeight="48dp"
-            android:textAppearance="@style/section_title_text_appearance"
-            tools:text="file name"/>
+            android:textAppearance="@style/TextAppearance.Preferator.Section"
+            tools:text="file name" />
 
         <ImageView
             android:id="@+id/section_arrow"
-            android:layout_marginLeft="@dimen/margin_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/margin_small"
             android:src="@drawable/ic_arrow_collapse_black_24dp"
-            android:tint="?colorAccent"
-            />
+            app:tint="?colorSecondary" />
     </LinearLayout>
 
     <LinearLayout
