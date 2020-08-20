@@ -3,9 +3,10 @@ package com.sloydev.preferator.demo
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.preference.PreferenceManager
-import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.sloydev.preferator.Preferator
 import java.util.Arrays
 import java.util.HashSet
@@ -14,8 +15,8 @@ class DemoActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_demo)
-    findViewById(R.id.demo_edit).setOnClickListener { Preferator.launch(this@DemoActivity) }
-    findViewById(R.id.demo_prefill).setOnClickListener { prefillPreferences() }
+    findViewById<View>(R.id.demo_edit).setOnClickListener { Preferator.launch(this@DemoActivity) }
+    findViewById<View>(R.id.demo_prefill).setOnClickListener { prefillPreferences() }
   }
 
   private fun prefillPreferences() {

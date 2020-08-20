@@ -28,7 +28,9 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.preference:preference:1.1.1'
+
     debugImplementation project(':library')
     releaseImplementation project(':library-no-op')
 }
