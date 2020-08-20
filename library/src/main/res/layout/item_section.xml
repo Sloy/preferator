@@ -1,54 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/margin_medium"
-    android:elevation="4dp"
-    android:orientation="vertical">
+    android:layout_margin="@dimen/margin_small"
+    android:layout_marginStart="@dimen/margin_small"
+    android:layout_marginTop="@dimen/margin_small"
+    android:layout_marginEnd="@dimen/margin_small"
+    android:layout_marginBottom="@dimen/margin_medium">
 
     <LinearLayout
-        android:id="@+id/section_name_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?selectableItemBackground"
-        android:paddingStart="@dimen/margin_medium"
-        android:paddingTop="4dp"
-        android:paddingEnd="@dimen/margin_small">
-
-        <TextView
-            android:id="@+id/section_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:minHeight="48dp"
-            android:textAppearance="@style/TextAppearance.Preferator.Section"
-            tools:text="file name" />
-
-        <ImageView
-            android:id="@+id/section_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/margin_small"
-            android:src="@drawable/ic_arrow_collapse_black_24dp"
-            app:tint="?colorSecondary" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/section_items"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
-        <!--<include layout="@layout/item_preference" />
+        <LinearLayout
+            android:id="@+id/section_name_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:paddingStart="@dimen/margin_medium"
+            android:paddingTop="4dp"
+            android:paddingEnd="@dimen/margin_small">
 
-        <include layout="@layout/item_preference" />
+            <TextView
+                android:id="@+id/section_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:minHeight="48dp"
+                android:textAppearance="@style/TextAppearance.Preferator.Section"
+                tools:text="file name" />
 
-        <include layout="@layout/item_preference" />-->
+            <ImageView
+                android:id="@+id/section_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/margin_small"
+                android:src="@drawable/ic_arrow_collapse_black_24dp"
+                app:tint="?colorSecondary" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/section_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <!--<include layout="@layout/item_preference" />
+
+            <include layout="@layout/item_preference" />
+
+            <include layout="@layout/item_preference" />-->
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>
