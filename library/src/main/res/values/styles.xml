@@ -6,18 +6,18 @@
         <item name="fontFamily">sans-serif-condensed</item>
     </style>
 
-    <style name="pref_name_text_appearance" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="TextAppearance.Preferator.Preference.Name" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textColor">@color/color_on_surface_87</item>
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="pref_type_text_appearance" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="TextAppearance.Preferator.Preference.Type" parent="TextAppearance.MaterialComponents.Caption">
         <item name="android:textColor">@color/color_on_surface_54</item>
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">monospace</item>
     </style>
 
-    <style name="pref_value_text_appearance" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="TextAppearance.Preferator.Preference.Value" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">@color/color_on_surface_54</item>
         <item name="android:textSize">18sp</item>
     </style>

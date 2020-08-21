@@ -13,7 +13,7 @@
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
         tools:text="pref_name"
-        android:textAppearance="@style/pref_name_text_appearance" />
+        android:textAppearance="@style/TextAppearance.Preferator.Preference.Name" />
 
     <TextView
         android:id="@+id/pref_type"
@@ -23,7 +23,7 @@
         android:layout_marginStart="@dimen/margin_small"
         android:layout_toEndOf="@id/pref_name"
         tools:text="Type"
-        android:textAppearance="@style/pref_type_text_appearance" />
+        android:textAppearance="@style/TextAppearance.Preferator.Preference.Type" />
 
     <FrameLayout
         android:id="@+id/pref_value_editor_container"

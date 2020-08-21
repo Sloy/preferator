@@ -5,13 +5,13 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_small"
     android:orientation="horizontal"
-    android:textAppearance="@style/pref_value_text_appearance">
+    android:textAppearance="@style/TextAppearance.Preferator.Preference.Value">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="value:"
-        android:textAppearance="@style/pref_value_text_appearance" />
+        android:textAppearance="@style/TextAppearance.Preferator.Preference.Value" />
 
     <Switch
         android:id="@+id/pref_value_boolean"

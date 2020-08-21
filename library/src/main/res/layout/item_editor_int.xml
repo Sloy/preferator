@@ -2,11 +2,11 @@
 <EditText xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pref_value"
-    style="@style/pref_value_text_appearance"
+    style="@style/TextAppearance.Preferator.Preference.Value"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:inputType="number"
     android:lines="1"
     android:maxLines="1"
-    android:textAppearance="@style/pref_value_text_appearance"
+    android:textAppearance="@style/TextAppearance.Preferator.Preference.Value"
     tools:text="42" />
