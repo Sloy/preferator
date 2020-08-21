@@ -15,11 +15,13 @@ env:
 
 android:
   components:
-    - build-tools-25.0.0
-    - android-23
+    - tools
+    - tools
     - platform-tools
-    - extra-google-m2repository
-    - extra-android-m2repository
+    - build-tools-28.0.3
+    - android-29
+    - extra
+    - addon
 
   licenses:
     - 'android-sdk-license-.+'

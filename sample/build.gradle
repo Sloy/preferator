@@ -4,12 +4,12 @@ apply plugin: 'kotlin-android'
 sourceCompatibility = 1.7
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 29
+
     defaultConfig {
         applicationId "com.sloydev.preferator.demo"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -26,11 +26,11 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.0.0'
-    debugCompile project(':library')
-    releaseCompile project(':library-no-op')
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
-repositories {
-    mavenCentral()
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.preference:preference:1.1.1'
+
+    debugImplementation project(':library')
+    releaseImplementation project(':library-no-op')
 }

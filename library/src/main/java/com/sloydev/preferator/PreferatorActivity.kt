@@ -3,25 +3,17 @@ package com.sloydev.preferator
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v4.app.ShareCompat
-import android.support.v4.util.Pair
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.PopupMenu
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.sloydev.preferator.editor.BooleanPrefEditor
-import com.sloydev.preferator.editor.FloatPrefEditor
-import com.sloydev.preferator.editor.IntPrefEditor
-import com.sloydev.preferator.editor.LongPrefEditor
-import com.sloydev.preferator.editor.SetPrefEditor
-import com.sloydev.preferator.editor.StringPrefEditor
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
+import androidx.core.app.ShareCompat
+import com.sloydev.preferator.editor.*
 import java.io.File
-import java.util.ArrayList
 
 class PreferatorActivity : AppCompatActivity() {
   private var sectionsView: ViewGroup? = null
@@ -68,18 +60,17 @@ class PreferatorActivity : AppCompatActivity() {
 
   private fun generateForm(prefsName: String) {
     val preferences = getSharedPreferences(prefsName)
-    val entries = ArrayList<Pair<String, *>>()
-    for ((key, value) in preferences.all) {
-      Log.d(TAG, String.format("(%s) %s = %s", prefsName, key, value.toString()))
-      entries.add(Pair.create<String, Any>(key, value))
-    }
 
-    addSection(prefsName, entries, preferences)
+    val filterValues = preferences.all.filterValues {
+      it != null
+    } as Map<String, Any>
+
+    addSection(prefsName, filterValues.toList(), preferences)
   }
 
-  private fun addSection(sectionTitle: String, entries: List<Pair<String, *>>, preferences: SharedPreferences) {
+  private fun addSection(sectionTitle: String, entries: List<Pair<String, Any>>, preferences: SharedPreferences) {
     val sectionView = LayoutInflater.from(this).inflate(R.layout.item_section, sectionsView, false)
-    val sectionNameContainer = sectionView.findViewById(R.id.section_name_container)
+    val sectionNameContainer = sectionView.findViewById<ViewGroup>(R.id.section_name_container)
     val sectionNameView = sectionView.findViewById(R.id.section_name) as TextView
     val sectionArrowView = sectionView.findViewById(R.id.section_arrow) as ImageView
     val itemsView = sectionView.findViewById(R.id.section_items) as ViewGroup
@@ -107,9 +98,9 @@ class PreferatorActivity : AppCompatActivity() {
       val prefType = Type.of(prefValue)
 
       val itemView = LayoutInflater.from(this).inflate(R.layout.item_preference, itemsView, false)
-      val nameView = itemView.findViewById(R.id.pref_name) as TextView
-      val typeView = itemView.findViewById(R.id.pref_type) as TextView
-      val moreView = itemView.findViewById(R.id.pref_more)
+      val nameView = itemView.findViewById<TextView>(R.id.pref_name)
+      val typeView = itemView.findViewById<TextView>(R.id.pref_type)
+      val moreView = itemView.findViewById<ImageView>(R.id.pref_more)
 
       nameView.text = prefKey
       typeView.text = prefType.typeName
