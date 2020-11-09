@@ -23,8 +23,8 @@ Add it to your build.gradle:
 
 ```groovy
 dependencies{
-    debugCompile 'com.sloydev:preferator:1.3.2'
-    releaseCompile 'com.sloydev:preferator-no-op:1.3.2'
+    debugCompile 'com.sloydev:preferator:1.4.0'
+    releaseCompile 'com.sloydev:preferator-no-op:1.4.0'
 }
 ```
 
